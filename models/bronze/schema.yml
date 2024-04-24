@@ -1,0 +1,322 @@
+version: 2
+
+models:
+  - name: stg_airports_geolocation
+    description: >-
+      This dataset contains geolocation information for airports.
+      This data set comes from the Kaggle API. 
+      You can learn more here: 
+      https://www.kaggle.com/datasets/bordanova/2023-us-civil-flights-delay-meteo-and-aircraft/data.
+    columns:
+      - name: iata_code
+        data_type: varchar
+        description: '{{ doc("column__iata_code") }}' 
+        tests:
+          - unique
+          - not_null
+
+      - name: airport
+        data_type: varchar
+        description: '{{ doc("column__airport") }}'
+
+      - name: city
+        data_type: varchar
+        description: '{{ doc("column__city") }}'
+
+      - name: state
+        data_type: varchar
+        description: '{{ doc("column__state") }}'
+
+      - name: country
+        data_type: varchar
+        description: '{{ doc("column__country") }}'
+
+      - name: latitude
+        data_type: double
+        description: '{{ doc("column__latitude") }}'
+
+      - name: longitude
+        data_type: double
+        description: '{{ doc("column__longitude") }}'
+
+      - name: loaded_at
+        data_type: timestamp with time zone
+        description: '{{ doc("column__loaded_at") }}'
+
+  - name: stg_cancelled_diverted
+    description: >-
+      This dataset focuses on flights that were cancelled or diverted.
+      You can learn more here: 
+      https://www.kaggle.com/datasets/bordanova/2023-us-civil-flights-delay-meteo-and-aircraft/data.
+    columns:
+      - name: flightdate
+        data_type: date
+        description: '{{ doc("column__flightdate") }}'
+
+      - name: day_of_week
+        data_type: bigint
+        description: '{{ doc("column__day_of_week") }}'
+
+      - name: airline
+        data_type: varchar
+        description: '{{ doc("column__airline") }}'
+
+      - name: tail_number
+        data_type: varchar
+        description: '{{ doc("column__tail_number") }}'
+
+      - name: cancelled
+        data_type: double
+        description: '{{ doc("column__cancelled") }}'
+
+      - name: diverted
+        data_type: double
+        description: '{{ doc("column__diverted") }}'
+
+      - name: dep_airport
+        data_type: varchar
+        description: '{{ doc("column__dep_airport") }}'
+
+      - name: dep_cityname
+        data_type: varchar
+        description: '{{ doc("column__dep_cityname") }}'
+
+      - name: deptime_label
+        data_type: varchar
+        description: '{{ doc("column__deptime_label") }}'
+
+      - name: dep_delay
+        data_type: double
+        description: '{{ doc("column__dep_delay") }}'
+
+      - name: dep_delay_tag
+        data_type: bigint
+        description: '{{ doc("column__dep_delay_tag") }}'
+        tests:
+          - accepted_values:
+              values: [0, 1]
+
+      - name: dep_delay_type
+        data_type: varchar
+        description: '{{ doc("column__dep_delay_type") }}'
+
+      - name: arr_airport
+        data_type: varchar
+        description: '{{ doc("column__arr_airport") }}'
+
+      - name: arr_cityname
+        data_type: varchar
+        description: '{{ doc("column__arr_cityname") }}'
+
+      - name: arr_delay
+        data_type: double
+        description: '{{ doc("column__arr_delay") }}'
+
+      - name: arr_delay_type
+        data_type: varchar
+        description: '{{ doc("column__arr_delay_type") }}'
+
+      - name: flight_duration
+        data_type: double
+        description: '{{ doc("column__flight_duration") }}'
+
+      - name: distance_type
+        data_type: varchar
+        description: '{{ doc("column__distance_type") }}'
+
+      - name: delay_carrier
+        data_type: double
+        description: '{{ doc("column__delay_carrier") }}'
+        tests:
+          - accepted_values:
+              values: [0, 1]
+
+      - name: delay_weather
+        data_type: double
+        description: '{{ doc("column__delay_weather") }}'
+        tests:
+          - accepted_values:
+              values: [0, 1]
+
+      - name: delay_nas
+        data_type: double
+        description: '{{ doc("column__delay_nas") }}'
+        tests:
+          - accepted_values:
+              values: [0, 1]
+
+      - name: delay_security
+        data_type: double
+        description: '{{ doc("column__delay_security") }}'
+        tests:
+          - accepted_values:
+              values: [0, 1]
+
+      - name: delay_lastaircraft
+        data_type: double
+        description: '{{ doc("column__delay_lastaircraft") }}'
+        tests:
+          - accepted_values:
+              values: [0, 1]
+
+      - name: loaded_at
+        data_type: timestamp with time zone
+        description: '{{ doc("column__loaded_at") }}'
+
+  - name: stg_us_flights
+    description: 
+      This dataset contains information about domestic flights in 
+      The United States airport details, flight delay etc.
+      You can learn more here
+      https://www.kaggle.com/datasets/bordanova/2023-us-civil-flights-delay-meteo-and-aircraft/data.
+    columns:
+      - name: flightdate
+        data_type: varchar
+        description: '{{ doc("column__flightdate") }}'
+
+      - name: day_of_week
+        data_type: bigint
+        description: '{{ doc("column__day_of_week") }}'
+
+      - name: airline
+        data_type: varchar
+        description: '{{ doc("column__airline") }}'
+
+      - name: tail_number
+        data_type: varchar
+        description: '{{ doc("column__tail_number") }}'
+
+      - name: dep_airport
+        data_type: varchar
+        description: '{{ doc("column__dep_airport") }}'
+
+      - name: dep_cityname
+        data_type: varchar
+        description: '{{ doc("column__dep_cityname") }}'
+
+      - name: deptime_label
+        data_type: varchar
+        description: '{{ doc("column__deptime_label") }}'
+
+      - name: dep_delay
+        data_type: bigint
+        description: '{{ doc("column__dep_delay") }}'
+
+      - name: dep_delay_tag
+        data_type: bigint
+        description: '{{ doc("column__dep_delay_tag") }}'
+
+      - name: dep_delay_type
+        data_type: varchar
+        description: '{{ doc("column__dep_delay_type") }}'
+
+      - name: arr_airport
+        data_type: varchar
+        description: '{{ doc("column__arr_airport") }}'
+
+      - name: arr_cityname
+        data_type: varchar
+        description: '{{ doc("column__arr_cityname") }}'
+
+      - name: arr_delay
+        data_type: bigint
+        description: '{{ doc("column__arr_delay") }}'
+
+      - name: arr_delay_type
+        data_type: varchar
+        description: '{{ doc("column__arr_delay_type") }}'
+
+      - name: flight_duration
+        data_type: bigint
+        description: '{{ doc("column__flight_duration") }}'
+
+      - name: distance_type
+        data_type: varchar
+        description: '{{ doc("column__distance_type") }}'
+
+      - name: delay_carrier
+        data_type: bigint
+        description: '{{ doc("column__delay_carrier") }}'
+
+      - name: delay_weather
+        data_type: bigint
+        description: '{{ doc("column__delay_weather") }}'
+
+      - name: delay_nas
+        data_type: bigint
+        description: '{{ doc("column__delay_nas") }}'
+
+      - name: delay_security
+        data_type: bigint
+        description: '{{ doc("column__delay_security") }}'
+
+      - name: delay_lastaircraft
+        data_type: bigint
+        description: '{{ doc("column__delay_lastaircraft") }}'
+
+      - name: manufacturer
+        data_type: varchar
+        description: '{{ doc("column__manufacturer") }}'
+
+      - name: model
+        data_type: varchar
+        description: '{{ doc("column__model") }}'
+
+      - name: aicraft_age
+        data_type: bigint
+        description: '{{ doc("column__aicraft_age") }}'
+
+      - name: loaded_at
+        data_type: timestamp with time zone
+        description: '{{ doc("column__loaded_at") }}'
+
+  - name: stg_weather_meteo_by_airport
+    description: >-
+      Table containing weather data (temperatures, air pressure, snow cover, 
+      precipitation, wind strength and direction) for each airport and day of the year.
+      You can learn more here
+      https://www.kaggle.com/datasets/bordanova/2023-us-civil-flights-delay-meteo-and-aircraft/data.
+    columns:
+      - name: _time
+        data_type: date
+        description: '{{ doc("column___time") }}'
+
+      - name: tavg
+        data_type: double
+        description: '{{ doc("column__tavg") }}'
+
+      - name: tmin
+        data_type: double
+        description: '{{ doc("column__tmin") }}'
+
+      - name: tmax
+        data_type: double
+        description: '{{ doc("column__tmax") }}'
+
+      - name: prcp
+        data_type: double
+        description: '{{ doc("column__prcp") }}'
+
+      - name: snow
+        data_type: double
+        description: '{{ doc("column__snow") }}'
+
+      - name: wdir
+        data_type: double
+        description: '{{ doc("column__wdir") }}'
+
+      - name: wspd
+        data_type: double
+        description: '{{ doc("column__wspd") }}'
+
+      - name: pres
+        data_type: double
+        description: '{{ doc("column__pres") }}'
+
+      - name: airport_id
+        data_type: varchar
+        description: '{{ doc("column__airport_id") }}'
+
+      - name: loaded_at
+        data_type: timestamp with time zone
+        description: '{{ doc("column__loaded_at") }}'

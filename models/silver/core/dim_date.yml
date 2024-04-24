@@ -1,0 +1,79 @@
+version: 2
+
+models:
+  - name: date_dimension
+    description: >-
+      Transforms raw date data into a structured date dimension table with detailed 
+      attributes for each date, including day, week, month, quarter, year, and seasonality.
+    columns:
+      - name: date_key
+        description: A unique surrogate key generated for each date.
+        meta:
+          dimension:
+            type: string
+
+      - name: date_day
+        description: The actual date.
+        meta:
+          dimension:
+            type: date
+
+      - name: day
+        description: The day of the month extracted from the date.
+        meta:
+          dimension:
+            type: integer
+
+      - name: week_day
+        description: The day of the week extracted from the date, where Sunday is 0 and Saturday is 6.
+        meta:
+          dimension:
+            type: integer
+
+      - name: week
+        description: The week number of the year extracted from the date.
+        meta:
+          dimension:
+            type: integer
+
+      - name: day_of_month
+        description: The day of the month extracted from the date.
+        meta:
+          dimension:
+            type: integer
+
+      - name: season
+        description: The season based on the month, categorized into Spring, Summer, Fall, or Winter.
+        meta:
+          dimension:
+            type: string
+
+      - name: year
+        description: The year extracted from the date.
+        meta:
+          dimension:
+            type: integer
+
+      - name: qtr
+        description: The quarter of the year extracted from the date.
+        meta:
+          dimension:
+            type: integer
+
+      - name: day_of_week
+        description: The name of the weekday, abbreviated.
+        meta:
+          dimension:
+            type: string
+
+      - name: month_name
+        description: The name of the month, abbreviated.
+        meta:
+          dimension:
+            type: string
+
+      - name: loaded_at
+        description: Timestamp marking when the data was processed and loaded.
+        meta:
+          dimension:
+            type: timestamp

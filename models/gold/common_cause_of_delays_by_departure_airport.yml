@@ -1,0 +1,77 @@
+version: 2
+
+models:
+  - name: airport_delay_summary
+    description: >-
+      Aggregates different types of delays at each airport and identifies the most common cause of delay.
+    meta:
+      joins:
+        - join: max_delays
+          sql_on: ${delay_sums.dep_airport} = ${max_delays.dep_airport}
+          type: inner
+    columns:
+      - name: dep_airport
+        description: The code of the departure airport.
+        meta:
+          dimension:
+            type: string
+
+      - name: dep_city_name
+        description: The name of the city where the departure airport is located.
+        meta:
+          dimension:
+            type: string
+
+      - name: total_carrier_delay
+        description: Total minutes delayed due to carrier issues.
+        meta:
+          metrics:
+            total_carrier_delay:
+              type: sum
+
+      - name: total_weather_delay
+        description: Total minutes delayed due to weather conditions.
+        meta:
+          metrics:
+            total_weather_delay:
+              type: sum
+
+      - name: total_nas_delay
+        description: Total minutes delayed due to National Airspace System issues.
+        meta:
+          metrics:
+            total_nas_delay:
+              type: sum
+
+      - name: total_security_delay
+        description: Total minutes delayed due to security issues.
+        meta:
+          metrics:
+            total_security_delay:
+              type: sum
+
+      - name: total_lateaircraft_delay
+        description: Total minutes delayed due to the late arrival of the previous aircraft.
+        meta:
+          metrics:
+            total_lateaircraft_delay:
+              type: sum
+
+      - name: max_delay
+        description: The maximum delay experienced from all categories at the airport.
+        meta:
+          metrics:
+            max_delay:
+              type: max
+
+      - name: most_common_delay_cause
+        description: The most common cause of delay at the airport, determined by the highest delay type.
+        meta:
+          dimension:
+            type: string
+            case_statement:
+              - when: "total_carrier_delay = max_delay then 'Carrier'"
+              - when: "total_weather_delay = max_delay then 'Weather'"
+              - when: "total_nas_delay = max_delay then 'NAS'"
+              - when: "total_security_delay = max_delay then 'Security'"
+              - else: "Late Aircraft"

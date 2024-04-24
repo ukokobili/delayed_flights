@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: weather_meteo_by_airport
+    description: >-
+      CTE for simplifying access to weather data by airport, including key weather data fields and a loading timestamp.
+    columns:
+      - name: weather_key
+        description: Unique identifier for the weather record.
+        meta:
+          dimension:
+            type: string
+
+      - name: weather_date
+        description: Date of the weather data.
+        meta:
+          dimension:
+            type: date
+
+      - name: airport_id
+        description: Identifier for the airport.
+        meta:
+          dimension:
+            type: string
+
+      - name: loaded_at
+        description: Timestamp marking when the record was loaded.
+        meta:
+          dimension:
+            type: timestamp

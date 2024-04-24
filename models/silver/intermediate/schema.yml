@@ -1,0 +1,142 @@
+version: 2
+
+models:
+  - name: int_airports_geolocation
+    description: >-
+      This is an intermediate dataset that contains transformation 
+      and a surrogate key.
+    columns:
+      - name: geolocation_key
+        data_type: varchar
+        description: Surrogate key
+
+      - name: iata_code
+        data_type: varchar
+        description: '{{ doc("_iata_code") }}'
+
+      - name: airport
+        data_type: varchar
+        description: '{{ doc("_airport") }}'
+
+      - name: city
+        data_type: varchar
+        description: '{{ doc("_city") }}'
+
+      - name: latitude
+        data_type: double
+        description: '{{ doc("_latitude") }}'
+
+      - name: longitude
+        data_type: double
+        description: '{{ doc("_longitude") }}'
+
+      - name: loaded_at
+        data_type: timestamp with time zone
+        description: '{{ doc("_loaded_at") }}'
+
+  - name: int_cancelled_diverted
+    description: >-
+      This is an intermediate dataset that contains transformation 
+      and a surrogate key.
+    columns:
+      - name: cancelled_key
+        data_type: varchar
+        description: Surrogate key
+        tests:
+          - not_null
+
+      - name: tail_number
+        data_type: varchar
+        description: '{{ doc("_tail_number") }}'
+        tests:
+          - not_null
+
+      - name: flight_date
+        data_type: date
+        description: '{{ doc("_flight_date") }}'
+        tests:
+          - not_null
+
+      - name: day_of_week
+        data_type: bigint
+        description: '{{ doc("_day_of_week") }}'
+        tests:
+          - not_null
+
+      - name: airline
+        data_type: varchar
+        description: '{{ doc("_airline") }}'
+        tests:
+          - not_null
+
+      - name: cancelled
+        data_type: double
+        description: '{{ doc("_cancelled") }}'
+        tests:
+          - accepted_values:
+              values: [0, 1]
+
+      - name: diverted
+        data_type: double
+        description: '{{ doc("_diverted") }}'
+        tests:
+          - accepted_values:
+              values: [0, 1]
+
+      - name: dep_airport
+        data_type: varchar
+        description: '{{ doc("_dep_airport") }}'
+        tests:
+          - not_null
+
+      - name: dep_city_name
+        data_type: varchar
+        description: '{{ doc("_dep_cityname") }}'
+
+      - name: deptime_label
+        data_type: varchar
+        description: '{{ doc("_deptime_label") }}'
+
+      - name: dep_delay
+        data_type: double
+        description: '{{ doc("_dep_delay") }}'
+
+      - name: dep_delay_tag
+        data_type: bigint
+        description: '{{ doc("_dep_delay_tag") }}'
+
+      - name: dep_delay_type
+        data_type: varchar
+        description: '{{ doc("_dep_delay_type") }}'
+
+      - name: arr_airport
+        data_type: varchar
+        description: '{{ doc("_arr_airport") }}'
+
+      - name: arr_city_name
+        data_type: varchar
+        description: '{{ doc("_arr_cityname") }}'
+
+      - name: arr_delay
+        data_type: double
+        description: '{{ doc("_arr_delay") }}'
+
+      - name: arr_delay_type
+        data_type: varchar
+        description: '{{ doc("_arr_delay_type") }}'
+
+      - name: flight_duration
+        data_type: double
+        description: '{{ doc("_flight_duration") }}'
+
+      - name: distance_type
+        data_type: varchar
+        description: '{{ doc("_distance_type") }}'
+
+      - name: delay_carrier
+        data_type: double
+        description: '{{ doc("_delay_carrier") }}'
+
+      - name: delay_weather
+        data_type: double
+        description: '{{ doc("_delay_weather") }}'

@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: dev
+    schema: main
+    database: local_dev
+    tables:
+      - name: airports_geolocation
+        description: >-
+          Contains geolocation data for airports including latitude and longitude coordinates, 
+          mainly used for mapping and distance calculations.
+      - name: cancelled_diverted
+        description: >-
+          Holds detailed records of flights that were either cancelled or diverted
+      - name: us_flights
+        description: >-
+          Comprehensive dataset of flight operations within the US, detailing flight 
+          numbers, departure and arrival date, delay statistics, and more.
+      - name: weather_meteo_by_airport
+        description: >-
+          Provides meteorological data recorded at various airports, useful for 
+          analyzing weather conditions impacting flight schedules.

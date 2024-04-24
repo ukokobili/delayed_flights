@@ -1,0 +1,81 @@
+version: 2
+
+models:
+  - name: dim_airports_geolocation
+    description: >-
+      Enhances airport geolocation data from the internal table by appending 
+      a current timestamp to each record. This timestamp reflects the time 
+      at which the data was loaded, facilitating data governance and traceability.
+    columns:
+      - name: airport_id
+        description: The unique identifier for each airport.
+        meta:
+          dimension:
+            type: string
+
+      - name: airport_name
+        description: The official name of the airport.
+        meta:
+          dimension:
+            type: string
+
+      - name: iata_code
+        description: The International Air Transport Association code for the airport.
+        meta:
+          dimension:
+            type: string
+
+      - name: icao_code
+        description: The International Civil Aviation Organization code for the airport.
+        meta:
+          dimension:
+            type: string
+
+      - name: latitude
+        description: The latitude coordinate of the airport.
+        meta:
+          dimension:
+            type: number
+
+      - name: longitude
+        description: The longitude coordinate of the airport.
+        meta:
+          dimension:
+            type: number
+
+      - name: elevation
+        description: The elevation of the airport above sea level, measured in feet or meters.
+        meta:
+          dimension:
+            type: number
+
+      - name: city
+        description: The city in which the airport is located.
+        meta:
+          dimension:
+            type: string
+
+      - name: country
+        description: The country in which the airport is located.
+        meta:
+          dimension:
+            type: string
+
+      - name: region
+        description: The geographical region or state in which the airport is located.
+        meta:
+          dimension:
+            type: string
+
+      - name: timezone
+        description: The timezone of the airport based on the IATA timezone code.
+        meta:
+          dimension:
+            type: string
+
+      - name: loaded_at
+        description: The timestamp at which the record was loaded into the data warehouse.
+        meta:
+          dimension:
+            type: timestamp
+

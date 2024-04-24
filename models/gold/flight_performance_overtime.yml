@@ -1,0 +1,100 @@
+version: 2
+
+models:
+  - name: flight_performance_overtime
+    description: >-
+      Tracks and aggregates flight performance metrics over time, calculating averages and totals for departure and arrival delays, and analyzing the impact of weather on flight delays.
+    columns:
+      - name: date_day
+        description: The specific date of flight operations.
+        meta:
+          dimension:
+            type: date
+
+      - name: day_of_week
+        description: The day of the week on which the flight occurred.
+        meta:
+          dimension:
+            type: string
+
+      - name: month_name
+        description: The name of the month in which the flight occurred.
+        meta:
+          dimension:
+            type: string
+
+      - name: year
+        description: The year in which the flight occurred.
+        meta:
+          dimension:
+            type: integer
+
+      - name: qtr
+        description: The quarter of the year during which the flight occurred.
+        meta:
+          dimension:
+            type: string
+
+      - name: season
+        description: The seasonal classification of the flight date (e.g., Spring, Summer).
+        meta:
+          dimension:
+            type: string
+
+      - name: total_flights
+        description: The total number of flights that occurred on the given date.
+        meta:
+          metrics:
+            total_flights_count:
+              type: count
+
+      - name: average_departure_delay
+        description: The average departure delay (in minutes) for flights on the given date.
+        meta:
+          metrics:
+            average_departure_delay:
+              type: average
+              unit: minutes
+
+      - name: average_arrival_delay
+        description: The average arrival delay (in minutes) for flights on the given date.
+        meta:
+          metrics:
+            average_arrival_delay:
+              type: average
+              unit: minutes
+
+      - name: on_time_departures
+        description: The count of flights that departed on time or early on the given date.
+        meta:
+          metrics:
+            on_time_departures_count:
+              type: count
+
+      - name: delayed_departures
+        description: The count of flights that departed late on the given date.
+        meta:
+          metrics:
+            delayed_departures_count:
+              type: count
+
+      - name: on_time_departure_rate
+        description: The percentage of flights that departed on time or early on the given date.
+        meta:
+          metrics:
+            on_time_departure_rate:
+              type: percentage
+
+      - name: weather_delayed_flights
+        description: The number of flights delayed due to weather conditions on the given date.
+        meta:
+          metrics:
+            weather_delayed_flights_count:
+              type: count
+
+      - name: weather_delay_impact
+        description: The percentage of total flights that were delayed due to weather on the given date.
+        meta:
+          metrics:
+            weather_delay_impact:
+              type: percentage

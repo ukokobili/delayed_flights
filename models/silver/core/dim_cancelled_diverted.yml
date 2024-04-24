@@ -1,0 +1,79 @@
+version: 2
+
+models:
+  - name: dim_cancelled_diverted
+    description: >-
+      Prepares data from the internal cancelled and diverted flights table, including key flight details and a timestamp indicating when each record was loaded.
+    columns:
+      - name: cancelled_key
+        description: Unique identifier for each cancellation or diversion record.
+        meta:
+          dimension:
+            type: string
+
+      - name: tail_number
+        description: Aircraft's tail number, identifying the specific airplane.
+        meta:
+          dimension:
+            type: string
+
+      - name: flight_date
+        description: The date of the flight.
+        meta:
+          dimension:
+            type: date
+
+      - name: airline
+        description: Name of the airline operating the flight.
+        meta:
+          dimension:
+            type: string
+
+      - name: dep_airport
+        description: The code of the departure airport.
+        meta:
+          dimension:
+            type: string
+
+      - name: dep_city_name
+        description: Name of the city from which the flight departed.
+        meta:
+          dimension:
+            type: string
+
+      - name: deptime_label
+        description: Categorization of the departure time, such as Morning, Afternoon, or Evening.
+        meta:
+          dimension:
+            type: string
+
+      - name: dep_delay_type
+        description: Type of delay experienced at departure, categorized into bands like Long or Short.
+        meta:
+          dimension:
+            type: string
+
+      - name: arr_airport
+        description: The code of the arrival airport.
+        meta:
+          dimension:
+            type: string
+
+      - name: arr_city_name
+        description: Name of the city where the flight was scheduled to arrive.
+        meta:
+          dimension:
+            type: string
+
+      - name: arr_delay_type
+        description: Type of delay experienced upon arrival, categorized similarly to departure delays.
+        meta:
+          dimension:
+            type: string
+
+      - name: loaded_at
+        description: >- 
+          Timestamp marking when the data was loaded into the data warehouse, reflecting data freshness.
+        meta:
+          dimension:
+            type: timestamp

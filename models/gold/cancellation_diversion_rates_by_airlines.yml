@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: aggregation_of_cancelled_diverted_flights_by_airlines
+    description: >-
+      Aggregates cancellation and diversion data by airline from the 'fct_cancelled_diverted_flights' fact table, calculating total, cancelled, and diverted flight counts along with rates.
+    columns:
+      - name: airline
+        description: The name of the airline.
+        meta:
+          dimension:
+            type: string
+
+      - name: total_flights
+        description: The total number of flights per airline.
+        meta:
+          metrics:
+            total_flights_count:
+              type: count
+
+      - name: cancelled_flights
+        description: Total number of cancelled flights per airline.
+        meta:
+          metrics:
+            cancelled_flights_count:
+              type: count
+
+      - name: diverted_flights
+        description: Total number of diverted flights per airline.
+        meta:
+          metrics:
+            diverted_flights_count:
+              type: count
+
+      - name: cancellation_rate
+        description: Percentage of flights cancelled per airline.
+        meta:
+          metrics:
+            cancellation_rate_percentage:
+              type: number
+              format: percent
+
+      - name: diversion_rate
+        description: Percentage of flights diverted per airline.
+        meta:
+          metrics:
+            diversion_rate_percentage:
+              type: number
+              format: percent
+

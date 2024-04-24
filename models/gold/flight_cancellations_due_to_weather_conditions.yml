@@ -1,0 +1,61 @@
+version: 2
+
+models:
+  - name: flight_cancellations_due_to_weather_conditions
+    description: >-
+      Aggregates the total cancellations and diversions at each airport, with additional weather-related metrics like average precipitation, snowfall, wind speed, and atmospheric pressure.
+    columns:
+      - name: dep_airport
+        description: The code of the departure airport where cancellations and diversions are aggregated.
+        meta:
+          dimension:
+            type: string
+
+      - name: total_cancellations
+        description: Total number of flights cancelled due to weather conditions.
+        meta:
+          metrics:
+            total_cancellations:
+              type: sum
+
+      - name: total_diversions
+        description: Total number of flights diverted due to weather conditions.
+        meta:
+          metrics:
+            total_diversions:
+              type: sum
+
+      - name: avg_precipitation
+        description: Average precipitation recorded on the days of flight cancellations and diversions.
+        meta:
+          metrics:
+            average_precipitation:
+              type: average
+
+      - name: avg_snowfall
+        description: Average snowfall recorded on the days of flight cancellations and diversions.
+        meta:
+          metrics:
+            average_snowfall:
+              type: average
+
+      - name: wind_direction
+        description: Average wind direction recorded on the days of cancellations and diversions.
+        meta:
+          metrics:
+            average_wind_direction:
+              type: average
+
+      - name: wind_speed
+        description: Average wind speed recorded on the days of cancellations and diversions.
+        meta:
+          metrics:
+            average_wind_speed:
+              type: average
+
+      - name: pressure
+        description: Average atmospheric pressure recorded on the days of cancellations and diversions.
+        meta:
+          metrics:
+            average_pressure:
+              type: average
