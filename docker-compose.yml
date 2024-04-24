@@ -1,0 +1,10 @@
+services:
+  flights:
+    image: flights
+    container_name: flights
+    build: 
+      context: ./
+      dockerfile: ./containers/Dockerfile
+    volumes:
+      - ./:/code
+    working_dir: /code

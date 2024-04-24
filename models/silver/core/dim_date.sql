@@ -1,3 +1,4 @@
+{{ config(materialized="view") }}
 with date_dimension as (select * from {{ ref("dates") }})
 select
     {{ dbt_utils.generate_surrogate_key(["date_day"]) }} as date_key,
@@ -6,6 +7,7 @@ select
     extract(dow from date_day) as week_day,
     extract(week from date_day) as week,
     {{ dbt_date.day_of_month("date_day") }} as day_of_month,
+    strftime('%Y-%m', date_day) as year_month,
     case
         when extract(month from date_day) in (3, 4, 5)
         then 'Spring'

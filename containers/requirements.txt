@@ -1,0 +1,9 @@
+pandas
+kaggle
+dbt-core==1.7.13
+dbt-snowflake==1.7.3 
+dbt-duckdb==1.7.4 
+duckdb==0.9.2
+black==24.3.0
+flake8==7.0.0
+shandy-sqlfmt[jinjafmt]

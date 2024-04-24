@@ -2,26 +2,12 @@ delayed_flights:
   outputs:
     dev:
       type: duckdb
-      path: "md:dev?motherduck_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZXNzaW9uIjoidWtva29iaWxpLmphY29iLmdtYWlsLmNvbSIsImVtYWlsIjoidWtva29iaWxpLmphY29iQGdtYWlsLmNvbSIsInVzZXJJZCI6ImU2OTAwYWJjLWVjNDYtNGUxOS05ZWI2LTE1Y2Y4NjlmYzkzYSIsImlhdCI6MTcxMzkxMzQzMSwiZXhwIjoxNzQ1NDcxMDMxfQ.HGQlo87ZuEzd7yo7WUa1hpzcH22s9KkyXB24A9ADut0"
-      extensions:
-        - httpfs
-        - parquet
-      settings:
-        s3_region: us-east-1
-        s3_access_key_id: AKIAZG4W7DXSO4TQ4BOF
-        s3_secret_access_key: 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
+      path: "md:dev?motherduck_token={{env_var('MOTHERDUCK_TOKEN')}}"
       threads: 1
 
     prod:
       type: duckdb
-      path: "md:dev?motherduck_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZXNzaW9uIjoidWtva29iaWxpLmphY29iLmdtYWlsLmNvbSIsImVtYWlsIjoidWtva29iaWxpLmphY29iQGdtYWlsLmNvbSIsInVzZXJJZCI6ImU2OTAwYWJjLWVjNDYtNGUxOS05ZWI2LTE1Y2Y4NjlmYzkzYSIsImlhdCI6MTcxMzkxMzQzMSwiZXhwIjoxNzQ1NDcxMDMxfQ.HGQlo87ZuEzd7yo7WUa1hpzcH22s9KkyXB24A9ADut0"
-      extensions:
-        - httpfs
-        - parquet
-      settings:
-        s3_region: us-east-1
-        s3_access_key_id: AKIAZG4W7DXSO4TQ4BOF
-        s3_secret_access_key: "{{ env_var('S3_SECRET_ACCESS_KEY') }}"
+      path: "md:dev?motherduck_token={{env_var('MOTHERDUCK_TOKEN')}}"
       threads: 4
 
   target: dev
