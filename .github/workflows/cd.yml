@@ -1,0 +1,42 @@
+name: CD
+on:
+  push:
+    branches:
+      - main
+
+  schedule:
+    # Scheduled to run at 00:00 UTC daily
+    - cron: '0 0 * * *'
+
+env:
+    MOTHERDUCK_TOKEN: ${{ secrets.MOTHERDUCK_TOKEN }}
+    DBT_PROFILES_DIR: ./
+
+jobs:
+  dbt_run:
+    name: Deploy dbt models
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.10'
+
+    - name: Install dbt
+      run: |
+        pip install -r ./containers/requirements.txt
+        
+
+    - name: Run dbt models
+      run: dbt run
+
+    - name: Test dbt models
+      run: dbt test
+
+    - name: Deploy models
+      run: dbt build --target prod .
+      
