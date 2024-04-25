@@ -29,7 +29,7 @@ dbt-test:
 	docker compose run flights dbt test
 
 dbt-docs:
-	docker compose run flights dbt docs generate && docker compose run flights dbt docs serve
+	docker compose run flights dbt docs generate 
 
 dbt-build:
 	docker compose run flights dbt build
@@ -46,5 +46,5 @@ format:
 lint: 
 	docker compose run flights flake8 ./scripts/load.py
 
-ci: docker-up dbt-debug sqlfmt dbt-compile dbt-run dbt-test dbt-docs 
+ci: docker-up dbt-deps sqlfmt dbt-compile dbt-run dbt-test dbt-docs 
 

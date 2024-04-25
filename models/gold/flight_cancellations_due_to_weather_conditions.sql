@@ -9,12 +9,12 @@ with
             avg(w.wdir) as wind_direction,
             avg(w.wspd) as wind_speed,
             avg(w.pres) as pressure,
-        from {{ ref("main_silver.fct_flight_cancelled_diverted") }} f
+        from {{ ref("fct_flight_cancelled_diverted") }} f
         left join
-            {{ ref("main_silver.fct_weather_conditions") }} w
+            {{ ref("fct_weather_conditions") }} w
             on f.flight_date = w.weather_date
         left join
-            {{ ref("main_silver.dim_airport_details") }} d
+            {{ ref("dim_airport_details") }} d
             on f.airport_code_key = d.airport_code_key
         group by d.airport_name
         order by total_cancellations desc
