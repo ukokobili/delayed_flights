@@ -37,14 +37,11 @@ dbt-build:
 ####################################################################################################################
 # Auto formatting, hecks, & Lint checks
 
-sqlfmt:
-	docker compose run flights ./models
-
 format:
 	docker compose run flights python -m black -S --line-length 79 .
 
 lint: 
 	docker compose run flights flake8 ./scripts/load.py
 
-ci: docker-up dbt-deps sqlfmt dbt-compile dbt-run dbt-test dbt-docs 
+ci: docker-up dbt-deps dbt-compile dbt-run dbt-test dbt-docs 
 
