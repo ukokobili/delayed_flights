@@ -1,9 +1,7 @@
 with
     facts as (
         select
-            {{ dbt_utils.generate_surrogate_key(["airport_id", "weather_date"]) }}
-            as fct_weather_key,
-            {{ dbt_utils.generate_surrogate_key(["airport_id"]) }} as airport_key,
+            airport_id,
             weather_date,
             tavg,
             tmin,
@@ -14,7 +12,7 @@ with
             wspd,
             pres,
             current_timestamp as loaded_at
-        from {{ ref("int_weather_meteo_by_airport") }}
+        from {{ ref("int_weather_details") }}
     )
-select *
+select *, {{ dbt_utils.generate_surrogate_key(["airport_id"]) }} as airport_id_key
 from facts

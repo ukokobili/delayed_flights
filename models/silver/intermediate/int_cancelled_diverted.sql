@@ -1,7 +1,6 @@
 with
     staging as (
         select
-            {{ dbt_utils.generate_surrogate_key(["tail_number"]) }} as cancelled_key,
             tail_number,
             cast(flightdate as date) as flight_date,
             day_of_week,

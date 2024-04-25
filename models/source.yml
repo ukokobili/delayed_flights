@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: dev
     schema: main
-    database: local_dev
+    database: dev
     tables:
       - name: airports_geolocation
         description: >-

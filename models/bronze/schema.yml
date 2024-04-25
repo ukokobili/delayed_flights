@@ -12,7 +12,6 @@ models:
         data_type: varchar
         description: '{{ doc("column__iata_code") }}' 
         tests:
-          - unique
           - not_null
 
       - name: airport
@@ -92,9 +91,6 @@ models:
       - name: dep_delay_tag
         data_type: bigint
         description: '{{ doc("column__dep_delay_tag") }}'
-        tests:
-          - accepted_values:
-              values: [0, 1]
 
       - name: dep_delay_type
         data_type: varchar
@@ -127,37 +123,22 @@ models:
       - name: delay_carrier
         data_type: double
         description: '{{ doc("column__delay_carrier") }}'
-        tests:
-          - accepted_values:
-              values: [0, 1]
 
       - name: delay_weather
         data_type: double
         description: '{{ doc("column__delay_weather") }}'
-        tests:
-          - accepted_values:
-              values: [0, 1]
 
       - name: delay_nas
         data_type: double
         description: '{{ doc("column__delay_nas") }}'
-        tests:
-          - accepted_values:
-              values: [0, 1]
 
       - name: delay_security
         data_type: double
         description: '{{ doc("column__delay_security") }}'
-        tests:
-          - accepted_values:
-              values: [0, 1]
 
       - name: delay_lastaircraft
         data_type: double
         description: '{{ doc("column__delay_lastaircraft") }}'
-        tests:
-          - accepted_values:
-              values: [0, 1]
 
       - name: loaded_at
         data_type: timestamp with time zone

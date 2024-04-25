@@ -1,0 +1,83 @@
+version: 2
+
+models:
+  - name: dim_flight_activity
+    description: >-
+      Transforms raw flight activity data into a structured dimension table with detailed 
+      attributes for each flight, including flight date, airline, tail number, departure airport, 
+      departure city name, departure time label, departure delay type, arrival airport, arrival city name, 
+      arrival delay type, and distance type.
+    columns:
+      - name: flight_activity_key
+        description: A unique surrogate key generated for each tail number.
+        meta:
+          dimension:
+            type: string
+
+      - name: flight_date
+        description: The date of the flight.
+        meta:
+          dimension:
+            type: date
+
+      - name: tail_number
+        description: The tail number of the aircraft.
+        meta:
+          dimension:
+            type: string
+
+      - name: dep_airport
+        description: The departure airport code.
+        meta:
+          dimension:
+            type: string
+
+      - name: dep_city_name
+        description: The name of the departure city.
+        meta:
+          dimension:
+            type: string
+
+      - name: deptime_label
+        description: The label for the departure time.
+        meta:
+          dimension:
+            type: string
+
+      - name: dep_delay_type
+        description: The type of departure delay.
+        meta:
+          dimension:
+            type: string
+
+      - name: arr_airport
+        description: The arrival airport code.
+        meta:
+          dimension:
+            type: string
+
+      - name: arr_city_name
+        description: The name of the arrival city.
+        meta:
+          dimension:
+            type: string
+
+      - name: arr_delay_type
+        description: The type of arrival delay.
+        meta:
+          dimension:
+            type: string
+
+      - name: distance_type
+        description: The type of distance.
+        meta:
+          dimension:
+            type: string
+      
+      - name: loaded_at
+        description: Timestamp marking when the data was processed and loaded.
+        meta:
+          dimension:
+            type: timestamp
+
+    

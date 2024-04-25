@@ -1,10 +1,8 @@
 with
-    dim_flights as (
+    dim_flight_activity as (
         select
-            flight_key,
-            tail_number,
             flight_date,
-            airline,
+            tail_number,
             dep_airport,
             dep_city_name,
             deptime_label,
@@ -12,10 +10,9 @@ with
             arr_airport,
             arr_city_name,
             arr_delay_type,
-            manufacturer,
-            model,
+            distance_type,
             current_timestamp as loaded_at
         from {{ ref("int_us_flights") }}
     )
-select *
-from dim_flights
+select *, {{ dbt_utils.generate_surrogate_key(["tail_number"]) }} as flight_activity_key
+from dim_flight_activity

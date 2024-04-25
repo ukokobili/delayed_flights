@@ -292,7 +292,7 @@ The duration of the flight in minutes.
 The date of the flight.
 {% enddocs %}
 
-{% docs _iata_code %}
+{% docs _airport_code %}
 The three-letter code assigned by the International Air Transport Association (IATA) to uniquely identify an airport.
 {% enddocs %}
 

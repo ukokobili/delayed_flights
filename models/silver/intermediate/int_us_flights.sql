@@ -1,7 +1,6 @@
 with
     staging as (
         select
-            {{ dbt_utils.generate_surrogate_key(["tail_number"]) }} as flight_key,
             tail_number,
             cast(flightdate as date) as flight_date,
             day_of_week,
@@ -25,7 +24,7 @@ with
             delay_lastaircraft as delay_last_aircraft,
             manufacturer,
             model,
-            aicraft_age,
+            aicraft_age as aircraft_age,
             current_timestamp as loaded_at
         from {{ ref("stg_us_flights") }}
     )

@@ -1,0 +1,56 @@
+version: 2
+
+models:
+  - name: fct_flight_cancelled_diverted
+    description: >-
+      Materialized table that combines information about cancelled and diverted flights.
+    columns:
+      - name: flight_date
+        description: The date of the flight.
+        meta:
+          dimension:
+            type: date
+
+      - name: cancelled
+        description: Indicates if the flight was cancelled (1) or not (0).
+        meta:
+          dimension:
+            type: integer
+
+      - name: diverted
+        description: Indicates if the flight was diverted (1) or not (0).
+        meta:
+          dimension:
+            type: integer
+
+      - name: date_key
+        description: A unique surrogate key generated for each flight date.
+        meta:
+          dimension:
+            type: string
+
+      - name: flight_activity_key
+        description: A unique surrogate key generated for each tail number.
+        meta:
+          dimension:
+            type: string
+
+      - name: aircraft_details_key
+        description: A unique surrogate key generated for each manufacturer.
+        meta:
+          dimension:
+            type: string
+
+      - name: airport_code_key
+        description: A unique surrogate key generated for each departure airport code.
+        meta:
+          dimension:
+            type: string
+
+      - name: loaded_at
+        description: Timestamp marking when the data was processed and loaded.
+        meta:
+          dimension:
+            type: timestamp
+
+   

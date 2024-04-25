@@ -16,6 +16,9 @@ load:
 dbt-debug:
 	docker compose run flights dbt debug
 
+dbt-deps:
+	docker compose run flights dbt deps
+
 dbt-compile:
 	docker compose run flights dbt compile
 	

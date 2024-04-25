@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: dim_aircraft_details
+    description: >-
+      Transforms raw aircraft details data into a structured dimension table 
+      with detailed attributes for each aircraft, including tail number, 
+      manufacturer, model, aircraft age, and loaded timestamp.
+    columns:
+      - name: aircraft_details_key
+        description: A unique surrogate key generated for each aircraft manufacturer.
+        meta:
+          dimension:
+            type: string
+
+      - name: tail_number
+        description: The tail number of the aircraft.
+        meta:
+          dimension:
+            type: string
+
+      - name: manufacturer
+        description: The manufacturer of the aircraft.
+        meta:
+          dimension:
+            type: string
+
+      - name: model
+        description: The model of the aircraft.
+        meta:
+          dimension:
+            type: string
+
+      - name: aircraft_age
+        description: The age of the aircraft.
+        meta:
+          dimension:
+            type: integer
+
+      - name: loaded_at
+        description: Timestamp marking when the data was processed and loaded.
+        meta:
+          dimension:
+            type: timestamp
+
+   

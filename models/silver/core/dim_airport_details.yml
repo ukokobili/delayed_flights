@@ -1,0 +1,69 @@
+version: 2
+
+models:
+  - name: dim_airport_details
+    description: >-
+      Transforms raw airport details data into a structured dimension table with detailed 
+      attributes for each airport, including airport code, name, city, state, country, latitude, longitude, and loaded timestamp.
+    columns:
+      - name: airport_code_key
+        description: A unique surrogate key generated for each airport code.
+        meta:
+          dimension:
+            type: string
+
+      - name: airport_code
+        description: The airport code.
+        meta:
+          dimension:
+            type: string
+
+      - name: airport_name
+        description: The name of the airport.
+        meta:
+          dimension:
+            type: string
+      
+      - name: airline
+        description: The airline of the flight.
+        meta:
+          dimension:
+            type: string
+
+      - name: city
+        description: The city where the airport is located.
+        meta:
+          dimension:
+            type: string
+
+      - name: state
+        description: The state where the airport is located.
+        meta:
+          dimension:
+            type: string
+
+      - name: country
+        description: The country where the airport is located.
+        meta:
+          dimension:
+            type: string
+
+      - name: latitude
+        description: The latitude of the airport.
+        meta:
+          dimension:
+            type: float
+
+      - name: longitude
+        description: The longitude of the airport.
+        meta:
+          dimension:
+            type: float
+
+      - name: loaded_at
+        description: Timestamp marking when the data was processed and loaded.
+        meta:
+          dimension:
+            type: timestamp
+
+  

@@ -22,8 +22,9 @@ with
             sum(case when f.delay_weather > 0 then 1 else 0 end)
             * 100.0
             / count(*) as weather_delay_impact  -- Percentage of flights delayed due to weather
-        from {{ ref("fct_flights_delay") }} f
-        left join {{ ref("dim_date") }} d on f.date_day_key = d.date_key
+        from main_silver.fct_flight_performance f
+        left join main_silver.dim_date d on f.flight_date = d.date_day
+        where month_name is not null
         group by d.date_day, d.day_of_week, d.month_name, d.year, d.qtr, d.season
     )
 -- Final selection from the CTE
