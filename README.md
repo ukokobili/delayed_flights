@@ -12,9 +12,9 @@
 
 ### Introduction
 
-Explore my comprehensive analysis project of US flight delays in 2023. This endeavor seeks to dissect and understand flight delay patterns with an aim to optimize air travel efficiency.
+Explore my comprehensive analysis project of US flight delays in 2023. This endeavour seeks to dissect and understand flight delay patterns to optimize air travel efficiency.
 ### Data Pipeline Architecture
-![](https://github.com/ukokobili/delayed_flights/blob/main/assets/pipeline.jpg)
+![](https://github.com/ukokobili/delayed_flights/blob/main/assets/deleyed_flight.jpg)
 ### Data Sources
 
 The datasets employed in this analysis are sourced from:
@@ -45,9 +45,9 @@ The datasets employed in this analysis are sourced from:
 
 ### Dashboards
 
-Our dashboards offer a deep-dive into:
+Our dashboards offers insights into:
 - **Temporal Delays**: Insight into how delays fluctuate over months.
-- **Airline Performance**: Analyses on specific airline delay and cancellation rates.
+- **Airline Performance**: Analyses of specific airline delay and cancellation rates.
 - **Weather Impact**: Exploration of the correlation between weather conditions and flight punctuality.
 
 ![](https://github.com/ukokobili/delayed_flights/blob/main/assets/dashboard.jpg)
