@@ -1,4 +1,10 @@
 -- Define a CTE (Common Table Expression) for clarity
+{{
+  config(
+    materialized = "table",
+    cluster_by = ["date_key", "loaded_at"]
+)
+}}
 with
     flight_performance_overtime as (
         select

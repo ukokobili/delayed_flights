@@ -1,7 +1,14 @@
+{% set partitions_to_replace = [
+ 'timestamp(current_date)',
+ 'timestamp(date_sub(current_date, interval 1 day))'
+] %}
+
 {{
     config(
         materialized="table",
+        incremental_strategy = 'insert_overwrite',
         partition_by={"field": "flight_date", "data_type": "date"},
+        partitions = partitions_to_replace
     )
 }}
 
@@ -24,7 +31,7 @@ with
             delay_nas,
             delay_security,
             delay_last_aircraft,
-            current_timestamp as loaded_at
+            loaded_at
         from {{ ref("int_us_flights") }}
     )
 select *

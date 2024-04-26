@@ -11,8 +11,7 @@ with
             avg(w.pres) as pressure,
         from {{ ref("fct_flight_cancelled_diverted") }} f
         left join
-            {{ ref("fct_weather_conditions") }} w
-            on f.flight_date = w.weather_date
+            {{ ref("fct_weather_conditions") }} w on f.flight_date = w.weather_date
         left join
             {{ ref("dim_airport_details") }} d
             on f.airport_code_key = d.airport_code_key

@@ -68,10 +68,17 @@ models:
       - name: cancelled 
         data_type: int
         description: '{{ doc("_cancelled") }}'
+        tests:
+          - accepted_values:
+              values: [0, 1]
 
       - name: diverted
         data_type: int
         description: '{{ doc("_diverted") }}'
+        tests:
+          - accepted_values:
+              values: [0, 1]
+
 
       - name: dep_airport
         data_type: varchar
