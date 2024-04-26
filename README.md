@@ -1,15 +1,56 @@
-Welcome to your new dbt project!
+# A Detailed Analytics Pipeline for Analyzing 2023 US Flight Delays.
 
-### Using the starter project
+## Final Submission
 
-Try running the following commands:
-- dbt run
-- dbt test
+### Table of Contents
+- [Introduction](#introduction)
+- [Data Sources](#data-sources)
+- [Methodology](#methodology)
+- [Dashboards](#dashboards)
+- [Conclusions](#conclusions)
 
+### Introduction
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+Explore my comprehensive analysis project of US flight delays in 2023. This endeavor seeks to dissect and understand flight delay patterns with an aim to optimize air travel efficiency.
+
+### Data Sources
+
+The datasets employed in this analysis are sourced from:
+
+- **Kaggle**: Detailed flight data for the US in 2023.
+- **IATA**: Airport codes and related geolocation information.
+- **Meteostat**: Weather data that may influence flight delays.
+
+**Additional Data Sources** include:
+- Historical records of flight delays.
+- Detailed operational statistics for airports.
+
+### Methodology
+
+#### Tools Used
+- [Kaggle API](#): For data extraction.
+- [dbt™](#): For robust data transformation and modeling.
+- [MotherDuck](#): Used as a scalable data warehouse.
+- [Preset.io](#): For insightful dashboard visualizations.
+- [GitHub](#): For version control and collaboration.
+- [GitHub Actions](#): For continuous integration and deployment, automating the workflow from data model updates to deployment in Snowflake.
+
+#### Applied Techniques
+- **Data Cleaning**: Employed dbt for refining data and ensuring precision.
+- **Data Modeling**: Utilized dbt to architect a star schema for efficient data queries.
+- **Data Warehousing**: Leveraged Snowflake's capabilities for managing extensive datasets.
+- **Continuous Integration/Deployment**: Utilized GitHub Actions to create a seamless pipeline for automatic updates and consistency checks.
+
+### Dashboards
+
+Our dashboards offer a deep-dive into:
+- **Temporal Delays**: Insight into how delays fluctuate over months.
+- **Airline Performance**: Analyses on specific airline delay and cancellation rates.
+- **Weather Impact**: Exploration of the correlation between weather conditions and flight punctuality.
+
+### Conclusions
+
+This project concludes that timely and comprehensive data analysis is key to mitigating flight delays and enhancing the air travel experience. It highlights how leveraging modern data tools and techniques can transform raw data into strategic insights.
+
+---
+

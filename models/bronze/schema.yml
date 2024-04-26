@@ -67,10 +67,14 @@ models:
       - name: cancelled
         data_type: double
         description: '{{ doc("column__cancelled") }}'
+        tests:
+          - not_null
 
       - name: diverted
         data_type: double
         description: '{{ doc("column__diverted") }}'
+        tests:
+          - not_null
 
       - name: dep_airport
         data_type: varchar
@@ -91,6 +95,10 @@ models:
       - name: dep_delay_tag
         data_type: bigint
         description: '{{ doc("column__dep_delay_tag") }}'
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
 
       - name: dep_delay_type
         data_type: varchar
@@ -186,6 +194,10 @@ models:
       - name: dep_delay_tag
         data_type: bigint
         description: '{{ doc("column__dep_delay_tag") }}'
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
 
       - name: dep_delay_type
         data_type: varchar

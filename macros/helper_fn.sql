@@ -8,3 +8,9 @@
     end
 
 {%- endmacro %}
+
+{% macro get_int(int) -%}
+    
+    CAST( {{int}} AS INT)
+
+{%- endmacro %}
