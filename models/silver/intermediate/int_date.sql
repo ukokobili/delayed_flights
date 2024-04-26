@@ -2,4 +2,4 @@
 {{ config(materialized="table") }}
 
 -- Generate a date dimension table for the year 2023
-{{ dbt_date.get_date_dimension("2023-01-01", "2023-12-31") }}
+{{ dbt_date.get_date_dimension("2020-01-01", "2023-12-31") }}

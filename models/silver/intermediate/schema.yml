@@ -65,12 +65,12 @@ models:
         tests:
           - not_null
 
-      - name: cancelled
-        data_type: double
+      - name: cancelled 
+        data_type: int
         description: '{{ doc("_cancelled") }}'
 
       - name: diverted
-        data_type: double
+        data_type: int
         description: '{{ doc("_diverted") }}'
 
       - name: dep_airport
