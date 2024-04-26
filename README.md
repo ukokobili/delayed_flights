@@ -4,6 +4,7 @@
 
 ### Table of Contents
 - [Introduction](#introduction)
+- [Data Pipeline ArchitectureData Pipeline Architecture](#data-pipeline-architecture)
 - [Data Sources](#data-sources)
 - [Methodology](#methodology)
 - [Dashboards](#dashboards)
@@ -12,6 +13,9 @@
 ### Introduction
 
 Explore my comprehensive analysis project of US flight delays in 2023. This endeavor seeks to dissect and understand flight delay patterns with an aim to optimize air travel efficiency.
+
+### Data Pipeline Architecture
+![](https://github.com/ukokobili/delayed_flights/blob/main/assets/pipeline.jpg)
 
 ### Data Sources
 
@@ -47,6 +51,8 @@ Our dashboards offer a deep-dive into:
 - **Temporal Delays**: Insight into how delays fluctuate over months.
 - **Airline Performance**: Analyses on specific airline delay and cancellation rates.
 - **Weather Impact**: Exploration of the correlation between weather conditions and flight punctuality.
+
+![](https://github.com/ukokobili/delayed_flights/blob/main/assets/dashboard.jpg)
 
 ### Conclusions
 

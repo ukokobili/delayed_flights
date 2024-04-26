@@ -10,7 +10,7 @@ on:
 
 env:
     MOTHERDUCK_TOKEN: ${{ secrets.MOTHERDUCK_TOKEN }}
-    DBT_PROFILES_DIR: ./
+    DBT_PROFILES_DIR: ./delayed_flights
 
 jobs:
   dbt_run:
